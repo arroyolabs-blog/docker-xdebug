@@ -1,0 +1,22 @@
+{
+    "name": "erdiko/erdiko",
+    "description": "Erdiko MVC micro framework (enterprise glue)",
+    "keywords": ["framework", "erdiko"],
+    "homepage": "http://erdiko.org",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arroyo Labs",
+            "email": "info@arroyolabs.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "erdiko/core": "0.10.*",
+        "twbs/bootstrap": "^3.3.6"
+    },
+    "config": {
+        "vendor-dir": "vendor",
+        "minimum-stability": "dev"
+    }
+}

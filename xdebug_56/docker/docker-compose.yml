@@ -1,0 +1,25 @@
+version: '2'
+services:
+  data:
+    image: busybox
+    volumes:
+      - ../:/var/www/code
+      - ./nginx/:/etc/nginx/conf.d
+
+  web:
+    image: nginx
+    volumes_from: [data]
+    links:
+      - fpm
+    ports:
+      - "8088:80"
+
+  fpm:
+    build:
+      context: .
+      dockerfile: Dockerfile-PHP
+    volumes_from: [data]
+    environment:
+      PHP_IDE_CONFIG: "serverName=docker"
+      PHP_XDEBUG_ENABLED: 1 # Set 1 to enable.
+      XDEBUG_CONFIG: remote_host=10.254.254.254
